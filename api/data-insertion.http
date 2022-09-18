@@ -1,0 +1,113 @@
+@host = http://localhost:3001/api/
+
+#################
+#################
+#################
+#################
+### PERSONNEL
+#################
+#################
+#################
+#################
+### CREATE DEPARTMENT
+POST {{host}}department 
+content-type: application/json
+
+{
+  "name": "College"
+}
+### CREATE ROLE
+POST {{host}}role 
+content-type: application/json
+
+{
+  "name": "Teacher"
+}
+### CREATE PERSONNEL
+POST {{host}}personnel 
+content-type: application/json
+
+{
+  "department": "College",
+  "idNumber": "E0007772",
+  "firstName": "Justin",
+  "lastName": "Lake"
+}
+### CREATE ACCOUNT
+PUT  {{host}}personnel/account
+content-type: application/json
+
+{
+
+  "id": "632636d7372fef8bcd2cd414",
+  "role": "Teacher",
+  "email": "Justin@gmail.com",
+  "passWord": "password"
+}
+#################
+#################
+#################
+#################
+### ITEM
+#################
+#################
+#################
+#################
+### CREATE ITEM CATEGORY
+POST {{host}}itemCategory 
+content-type: application/json
+
+{
+  "name": "Equipments"
+}
+### CREATE SUPPLIER
+POST {{host}}supplier 
+content-type: application/json
+
+{
+  "name": "Sm Lanang",
+  "address": "Davao City"
+}
+### CREATE ITEM
+POST {{host}}item 
+content-type: application/json
+
+{
+  "code": "SPCT-00070",
+  "serialNumber": "SRL00070",
+  "name": "SONY SPEAKER",
+  "category": "Equipments",
+  "price": 0,
+  "supplier": "",
+  "purchaseDate" : "2022-03-30",
+  "useFulLife": 0,
+  "salvageValue": 0
+}
+#################
+#################
+#################
+#################
+### INVENTORY
+#################
+#################
+#################
+#################
+### CREATE ROOM
+POST {{host}}room 
+content-type: application/json
+
+{
+  "name": "JV",
+  "no": "106"
+}
+### CREATE INVENTORY
+POST {{host}}history 
+content-type: application/json
+
+{
+  "personnelid":"623d1e9f19ef7da7efc9da29",
+  "itemid":"623d1e6719ef7da7efc9da25",
+  "roomid":"623d1dd719ef7da7efc9da07",
+  "status":"good condition",
+  "remarks":""
+}

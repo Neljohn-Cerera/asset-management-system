@@ -1,0 +1,545 @@
+@host = http://localhost:3001/api/
+
+
+#############
+### PERSONNEL
+#############
+############# SEARCH PERSONNEL
+GET {{host}}personnel/search?text=&page=2&limit=5
+content-type: application/json
+############# CREATE PERSONNEL
+POST {{host}}personnel 
+content-type: application/json
+
+{
+  "department": "College",
+  "idNumber": "000667711",
+  "firstName": "Neljohn",
+  "lastName": "Cerera"
+}
+############# UPDATE PERSONNEL INFORMATIONS
+PUT {{host}}/personnel
+content-type: application/json
+
+{
+  "id": "6229894e026208c613ac87b5",
+  "department": "College",
+  "idNumber": "2232002089",
+  "firstName": "Neljohn",
+  "lastName": "Cerera"
+}
+############# DELETE PERSONNEL
+DELETE {{host}}/personnel
+content-type: application/json
+
+{
+  "id": "6229894e026208c613ac87b5"
+}
+###########
+### ACCOUNT
+###########
+########### ACCOUNT LOGIN
+POST {{host}}personnel/login
+content-type: application/json
+
+{
+  "email": "macla@gmailcom",
+  "passWord": "password"
+}
+########### CREATE ACCOUNT
+PUT  {{host}}personnel/account
+content-type: application/json
+
+{
+
+  "id": "623f4f3e4bbcf0b47bd6d504",
+  "role": "Admin",
+  "email": "john@gmail.com",
+  "passWord": "password"
+}
+########### UPDATE ACCOUNT
+PUT {{host}}/personnel/account
+content-type: application/json
+
+{
+  "id": "6230c6ea942a133b225ba74d",
+  "role": "Staff",
+  "email": "test@gmail.com",
+  "passWord": "password"
+}
+########### DELETE ACCOUNT
+DELETE  {{host}}/personnel/account
+content-type: application/json
+
+{
+  "id": "622ac5bfba57f20c615b77b1"
+}
+
+
+
+#################
+#################
+#################
+#################
+### ITEM
+#################
+#################
+#################
+#################
+################# RETRIEVE ALL ITEM
+GET {{host}}item
+content-type: application/json
+################# SEARCH ITEM
+GET {{host}}item/search?text=&page=1&limit=5
+content-type: application/json
+################# CREATE ITEM
+POST {{host}}item 
+content-type: application/json
+
+{
+  "code": "4401001",
+  "serialNumber": "s0019111",
+  "name": "Monitor",
+  "category": "Equipments",
+  "price": 2000,
+  "supplier": "Johns Corp"
+}
+
+################# UPDATE ITEM
+PUT {{host}}item
+content-type: application/json
+
+{
+  "id" : "6229aa739d0c1ede62efc527",
+  "code": "55889292",
+  "serialNumber": "sr-200001",
+  "name": "Keyboard",
+  "category": "Equipments",
+  "price": 1000.00,
+  "supplier": "Maclas Corp"
+}
+################# DELETE ITEM
+DELETE {{host}}item
+content-type: application/json
+
+{
+  "id" : "625f6e0061469ad1f8d94347"
+}
+#################
+#################
+#################
+#################
+### ITEM CATEGORY
+#################
+#################
+#################
+#################
+################# RETRIEVE ALL ITEM CATEGORY
+GET {{host}}itemCategory
+content-type: application/json
+################# CREATE ITEM CATEGORY
+POST {{host}}itemCategory 
+content-type: application/json
+
+{
+  "name": "Fixtures and Furnitures"
+}
+################# DELETE ITEM CATEGORY
+DELETE {{host}}itemCategory
+content-type: application/json
+
+{
+  "_id" : "625ccc074b960f16bca21271"
+}
+#################
+#################
+#################
+#################
+### SUPPLIER
+#################
+#################
+#################
+#################
+################# RETRIEVE ALL SUPPLIER
+GET {{host}}supplier 
+content-type: application/json
+################# CREATE SUPPLIERR
+POST {{host}}supplier 
+content-type: application/json
+
+{
+  "name": "Maclas Corp",
+  "address": "Davao City"
+}
+################# DELETE SUPPLIER
+DELETE {{host}}supplier 
+content-type: application/json
+
+{
+  "_id": "625f6e0061469ad1f8d94347"
+}
+#################
+#################
+#################
+#################
+### DEPARTMENT
+#################
+#################
+#################
+#################
+################# RETRIEVE ALL DEPARTMENTS
+GET {{host}}department 
+content-type: application/json
+################# CREATE DEPARTMENT
+POST {{host}}department 
+content-type: application/json
+
+{
+  "name": "High School"
+}
+#################
+#################
+#################
+#################
+### ROLE
+#################
+#################
+#################
+#################
+################# RETRIEVE ALL ROLE
+GET {{host}}role 
+content-type: application/json
+################# CREATE ROLE
+POST {{host}}role 
+content-type: application/json
+
+{
+  "name": "Assistant Staff"
+}
+#################
+#################
+#################
+#################
+### ROOM
+#################
+#################
+#################
+#################
+################# RETRIEVE ALL ROOMS
+GET {{host}}room 
+content-type: application/json
+################# CREATE ROOM
+POST {{host}}room 
+content-type: application/json
+
+{
+  "name": "PM",
+  "no": "205"
+}
+#################
+#################
+#################
+#################
+### HISTORY RELATED QUERIES
+#################
+#################
+#################
+#################
+################# ITEM Search by item code
+GET {{host}}item/4401001
+content-type: application/json
+################# ITEM Search
+GET {{host}}item/search?text=
+content-type: application/json
+################# PERSONNEL Search by id number
+GET {{host}}personnel/8899991
+content-type: application/json
+################# PERSONNEL Search
+GET {{host}}personnel/search?text=
+content-type: application/json
+#################
+#################
+#################
+#################
+### HISTORY
+#################
+#################
+#################
+#################
+################# RETRIEVE ALL HISTORY
+GET {{host}}history?page=1&limit=30
+content-type: application/json
+################# SEARCH HISTORY
+GET {{host}}history/search/SPCT-00026
+content-type: application/json
+################# SEARCH ITEMS PER ROOM RECORDS
+GET {{host}}history/search/records/SPCT-00026
+content-type: application/json
+################# CREATE INVENTORY
+POST {{host}}history 
+content-type: application/json
+
+{
+  "personnelid":"62447ca95ab56e98cb13af34",
+  "itemid":"62449206633603b881c4e64b",
+  "roomid":"624487945ab56e98cb13af9f",
+  "status":"good condition",
+  "remarks":""
+}
+#################
+#################
+#################
+#################
+### DASHBOARD
+#################
+#################
+#################
+#################
+################# Retrieve dashboard statistics
+GET {{host}}dashboard
+content-type: application/json
+################# Retrieve dashboard assets counts
+GET {{host}}dashboard/assets-count?status=lost
+content-type: application/json
+#################
+#################
+#################
+#################
+### SETTINGS
+#################
+#################
+#################
+#################
+################# Retrieve  settings
+GET {{host}}settings
+content-type: application/json
+################# Create  settings
+POST {{host}}settings
+content-type: application/json
+
+{
+  "rangeYear": "2022-2026",
+  "year": 2022
+}
+################# Update  settings
+PUT {{host}}settings
+content-type: application/json
+
+{
+  "_id": "624533d4c7ad3be6b2c993d6",
+  "rangeYear": "2023-2026",
+  "year": 2022
+}
+#################
+#################
+#################
+#################
+### REPORTS
+#################
+#################
+#################
+#################
+################# Retrieve  five years reports
+GET {{host}}reports/five-years?fromYear=2022&toYear=2026
+content-type: application/json
+################# Retrieve  yearly reports
+GET {{host}}reports/yearly?year=2022
+content-type: application/json
+################# Retrieve  room reports
+GET {{host}}reports/room?roomid=624891ae78aa7b467d6a03ea&year=2022
+content-type: application/json
+
+################# RETRIEVE ALL ROOMS
+GET {{host}}room 
+content-type: application/json
+
+
+
+
+
+#################
+#################
+#################
+#################
+### Test
+#################
+#################
+#################
+#################
+################# Test group data
+GET {{host}}history/testing
+content-type: application/json
+
+################# RETRIEVE ALL HISTORY
+GET {{host}}history?page=1&limit=30
+content-type: application/json
+
+
+###### STATUS
+GET {{host}}status
+content-type: application/json
+###### STATUS DELETE
+DELETE  {{host}}status
+content-type: application/json
+
+{
+  "_id": "625f7922fd7ae9b7a3aeb939"
+}
+
+
+
+
+#################
+#################
+#################
+#################
+### Consumables Items
+#################
+#################
+#################
+#################
+###### ITEM CONSUMABLES RETRIEVE
+GET {{host}}itemconsumables?text=&page=1&limit=100
+content-type: application/json
+
+###### ITEM CONSUMABLES CREATE
+POST  {{host}}itemconsumables
+content-type: application/json
+
+{
+  "name": "Bulb",
+  "description": "Samsung",
+  "restock": 10,
+  "unitid": "6260a8f8b12d56f262a56797"
+}
+
+###### ITEM CONSUMABLES UPDATE
+PUT  {{host}}itemconsumables
+content-type: application/json
+
+{
+  "_id": "625eef1b14005d0aebee1369",
+  "name": "Flourescent lamp test",
+  "description": "white lamp test"
+}
+
+###### ITEM CONSUMABLES DELETE
+DELETE   {{host}}itemconsumables
+content-type: application/json
+
+{
+  "_id": "6268a9146d3bcc0489abd9a7"
+}
+
+#################
+#################
+#################
+#################
+### Stocks Unit
+#################
+#################
+#################
+#################
+###### STOCK UNITS
+GET {{host}}stockunit
+###### STOCK UNITS
+POST {{host}}stockunit
+content-type: application/json
+
+{
+  "name": "bulk"
+}
+
+#################
+#################
+#################
+#################
+### Stocks
+#################
+#################
+#################
+#################
+###### ITEM CONSUMABLES STOCKS RETRIEVE
+GET {{host}}itemconsumablesstocks?text=a&page=2&limit=5
+content-type: application/json
+
+######  CONSUMABLES STOCKS ADD
+POST  {{host}}itemconsumablesstocks
+content-type: application/json
+
+{
+  "item": "62621c1ee9e62015bba34cdd",
+  "purchaseDate": "'2022-04-22'",
+  "quantity": 35
+}
+######  CONSUMABLES STOCKS REMOVE
+PUT  {{host}}itemconsumablesstocks
+content-type: application/json
+
+{
+  "item": "Bulb",
+  "description": "150 watts",
+  "unitid" : "6260a8fcb12d56f262a56799",
+  "quantity": 1,
+  "personnelid": "625cd669898f69ae8e1c215b",
+  "roomid": "624891ae78aa7b467d6a03ea"
+}
+
+#################
+#################
+#################
+#################
+### Stocks Histories
+#################
+#################
+#################
+#################
+###### STOCK histories retrieve
+GET {{host}}stockhistory?text=&page=2&limit=5
+
+#################
+#################
+#################
+#################
+### Stocks Reports
+#################
+#################
+#################
+#################
+###### STOCK OUT reports
+GET {{host}}stockreports/stocksout?year=2022
+
+#################
+#################
+#################
+#################
+### COLORS
+#################
+#################
+#################
+#################
+###### GET ALL COLORS
+GET {{host}}colors
+
+###### ADD COLORS
+POST  {{host}}colors
+content-type: application/json
+
+{
+  "name": "#3e2a89"
+}
+
+#################
+#################
+#################
+#################
+### STOCK DASHBOARD
+#################
+#################
+#################
+#################
+###### Pie chart data stock in
+GET {{host}}stockdashboard/piechart/stockin
+
+###### Pie chart data stock out
+GET {{host}}stockdashboard/piechart/stockout
