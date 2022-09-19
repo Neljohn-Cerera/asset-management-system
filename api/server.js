@@ -41,7 +41,7 @@ app.use(
  * mongo db session setup
  */
 var store = new MongoDBSession({
-  uri: `mongodb://${process.env.DB_HOST}/${process.env.DB_NAME}`,
+  uri: process.env.DB_URL,
   collection: "sessions",
   maxAge: 28800, // 28800 secs is 8 hours
 });
