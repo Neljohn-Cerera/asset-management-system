@@ -86,7 +86,6 @@ export const MenuItemLinks = styled(Link)`
     margin: 0 2rem;
     transition: all 0.6s ease;
     -webkit-transition: all 0.6s ease;
-    transition: all 0.6s ease;
   }
 `;
 
@@ -108,6 +107,5 @@ export const LogoutLink = styled.a`
     margin: 0 2rem;
     transition: all 0.6s ease;
     -webkit-transition: all 0.6s ease;
-    transition: all 0.6s ease;
   }
 `;

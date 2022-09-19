@@ -38,11 +38,11 @@ const itemConsumablesRegistration = asyncHandler(async (req, res) => {
       description,
       unit: unit._id,
       restock,
-      color: color[0].name,
+      color: color[0]?.name,
     });
     if (itemConsumables) {
       await colorsModel.updateOne(
-        { _id: color[0]._id },
+        { _id: color[0]?._id },
         {
           inUse: true,
         }
@@ -53,6 +53,7 @@ const itemConsumablesRegistration = asyncHandler(async (req, res) => {
       itemConsumables,
     });
   } catch (err) {
+    console.log("err : ", err);
     // return 500
     returnError(res, "Post", "api/itemconsumables");
   }

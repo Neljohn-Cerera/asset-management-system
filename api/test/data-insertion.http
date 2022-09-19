@@ -14,14 +14,14 @@ POST {{host}}department
 content-type: application/json
 
 {
-  "name": "College"
+  "name": "Junior High School"
 }
 ### CREATE ROLE
 POST {{host}}role 
 content-type: application/json
 
 {
-  "name": "Teacher"
+  "name": "Admin"
 }
 ### CREATE PERSONNEL
 POST {{host}}personnel 
@@ -58,7 +58,7 @@ POST {{host}}itemCategory
 content-type: application/json
 
 {
-  "name": "Equipments"
+  "name": "Fixtures and Furnitures"
 }
 ### CREATE SUPPLIER
 POST {{host}}supplier 
@@ -97,8 +97,8 @@ POST {{host}}room
 content-type: application/json
 
 {
-  "name": "JV",
-  "no": "106"
+  "name": "PM",
+  "no": "105"
 }
 ### CREATE INVENTORY
 POST {{host}}history 

@@ -29,9 +29,10 @@ require("./config/dbConnection");
 /* Middel Wares */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
 app.use(
   cors({
-    origin: ["http://172.16.3.26", "http://localhost:3000"],
+    origin: process.env.ORIGINS.split(","),
     credentials: true,
   })
 );

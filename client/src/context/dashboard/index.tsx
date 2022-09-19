@@ -17,7 +17,7 @@ import {
  * @returns
  */
 const DashBoardContextProvider: React.FC = (props) => {
-  /** non array states */
+  /** non array statess */
   const [dashBoardStates, dispatch] = useReducer(
     dashBoardReducer,
     dashBoardInitialStates

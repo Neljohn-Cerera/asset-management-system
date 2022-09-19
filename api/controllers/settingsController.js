@@ -16,7 +16,7 @@ const findSettings = asyncHandler(async (req, res) => {
   try {
     // Find settings
     const settings = await settingsModel.findById({
-      _id: "624533d4c7ad3be6b2c993d6",
+      _id: "63278c49694d6bbdc1e3aa77",
     });
     // const settings = await settingsModel.find({});
     // return 200
@@ -70,7 +70,7 @@ const updateSettings = asyncHandler(async (req, res) => {
   try {
     // update settings
     const settings = await settingsModel.updateOne(
-      { _id: "624533d4c7ad3be6b2c993d6" },
+      { _id: "63278c49694d6bbdc1e3aa77" },
       {
         rangeYear,
         year,

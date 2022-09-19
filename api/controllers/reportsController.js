@@ -8,6 +8,8 @@ const { returnError } = require("../helper/returnError");
 
 const ObjectId = mongoose.Types.ObjectId;
 
+const settingsID = "63278c49694d6bbdc1e3aa77";
+
 /**
  * Retrieve Five years reports
  *
@@ -43,42 +45,42 @@ const fiveYearsReports = asyncHandler(async (req, res) => {
             name: "good condition",
           });
           const goodConditionAssetsCounts = await historyModel.count({
-            room: room._id,
+            room: room?._id,
             year: yearVal,
-            status: statusGood._id,
+            status: statusGood?._id,
           });
           const statusLostGood = await statusModel.findOne({ name: "lost" });
           const lostAssetsCounts = await historyModel.count({
-            room: room._id,
+            room: room?._id,
             year: yearVal,
-            status: statusLostGood._id,
+            status: statusLostGood?._id,
           });
           const statusForRepairGood = await statusModel.findOne({
             name: "for repair",
           });
           const forRepairAssetsCounts = await historyModel.count({
-            room: room._id,
+            room: room?._id,
             year: yearVal,
-            status: statusForRepairGood._id,
+            status: statusForRepairGood?._id,
           });
           const statusFoReplacementGood = await statusModel.findOne({
             name: "for replacement",
           });
           const forReplacementAssetsCounts = await historyModel.count({
-            room: room._id,
+            room: room?._id,
             year: yearVal,
-            status: statusFoReplacementGood._id,
+            status: statusFoReplacementGood?._id,
           });
           const statusNewGood = await statusModel.findOne({
             name: "new",
           });
           const newAssetsCounts = await historyModel.count({
-            room: room._id,
+            room: room?._id,
             year: yearVal,
-            status: statusNewGood._id,
+            status: statusNewGood?._id,
           });
           assetsCount.push({
-            roomid: room._id,
+            roomid: room?._id,
             year: yearVal,
             goodCondition: goodConditionAssetsCounts,
             new: newAssetsCounts,
@@ -89,7 +91,7 @@ const fiveYearsReports = asyncHandler(async (req, res) => {
         }
         let roomAssets = await historyModel.aggregate([
           {
-            $match: { room: ObjectId(`${room._id}`) },
+            $match: { room: ObjectId(`${room?._id}`) },
           },
           {
             $lookup: {

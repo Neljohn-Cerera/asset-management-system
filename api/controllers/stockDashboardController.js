@@ -4,6 +4,8 @@ const stockHistoryModel = require("../models/stockHistoryModel");
 const settingsModel = require("../models/settingsModel");
 const { returnError } = require("../helper/returnError");
 
+const settingsID = "63278c49694d6bbdc1e3aa77";
+
 /**
  * data for stock dashboard pie chart stock in
  *
@@ -16,7 +18,7 @@ const { returnError } = require("../helper/returnError");
 const stockDashboardPieChartStockin = asyncHandler(async (req, res) => {
   try {
     const settings = await settingsModel.findById({
-      _id: "624533d4c7ad3be6b2c993d6",
+      _id: settingsID,
     });
     if (!settings) {
       return res.status(400).json({
@@ -99,7 +101,7 @@ const stockDashboardPieChartStockin = asyncHandler(async (req, res) => {
 const stockDashboardPieChartStockout = asyncHandler(async (req, res) => {
   try {
     const settings = await settingsModel.findById({
-      _id: "624533d4c7ad3be6b2c993d6",
+      _id: settingsID,
     });
     if (!settings) {
       return res.status(400).json({

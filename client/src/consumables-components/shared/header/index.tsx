@@ -48,7 +48,7 @@ const ConsumablesHeader: React.FC<Props> = ({ toggleTheme }) => {
     <HeaderContainer>
       <Logo>
         <img src={logo} alt="logo" />
-        <h1>SPCT</h1>
+        <h1>NRC</h1>
         <MenuIconOpen to="#" onClick={showSidebar}>
           <FaIcons.FaBars />
         </MenuIconOpen>

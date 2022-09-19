@@ -4,6 +4,8 @@ const settingsModel = require("../models/settingsModel");
 const statusModel = require("../models/statusModel");
 const { returnError } = require("../helper/returnError");
 
+const settingsID = "63278c49694d6bbdc1e3aa77";
+
 //  {
 //     lost: 20,
 //     new: 88,
@@ -17,7 +19,7 @@ const { returnError } = require("../helper/returnError");
 const dashboardStatistics = asyncHandler(async (req, res) => {
   try {
     const settings = await settingsModel.findById({
-      _id: "624533d4c7ad3be6b2c993d6",
+      _id: settingsID,
     });
 
     const yearSplit = settings?.rangeYear?.split("-");
@@ -39,7 +41,7 @@ const dashboardStatistics = asyncHandler(async (req, res) => {
       if (statusLost) {
         lostItems = await historyModel.count({
           year: from,
-          status: statusLost._id,
+          status: statusLost?._id,
         });
       }
 
@@ -47,21 +49,22 @@ const dashboardStatistics = asyncHandler(async (req, res) => {
       if (statusLost) {
         newItems = await historyModel.count({
           year: from,
-          status: statusNew._id,
+          status: statusNew?._id,
         });
       }
       const statusGood = await statusModel.findOne({ name: "good condition" });
+
       if (statusLost) {
         goodCondition = await historyModel.count({
           year: from,
-          status: statusGood._id,
+          status: statusGood?._id,
         });
       }
       const statusForRepair = await statusModel.findOne({ name: "for repair" });
       if (statusLost) {
         forRepair = await historyModel.count({
           year: from,
-          status: statusForRepair._id,
+          status: statusForRepair?._id,
         });
       }
       const statusForReplacement = await statusModel.findOne({
@@ -70,14 +73,14 @@ const dashboardStatistics = asyncHandler(async (req, res) => {
       if (statusLost) {
         forReplacement = await historyModel.count({
           year: from,
-          status: statusForReplacement._id,
+          status: statusForReplacement?._id,
         });
       }
       const statusDiscarded = await statusModel.findOne({ name: "discarded" });
       if (statusLost) {
         discarded = await historyModel.count({
           year: from,
-          status: statusDiscarded._id,
+          status: statusDiscarded?._id,
         });
       }
 
@@ -106,7 +109,7 @@ const dashboardAssetsCount = asyncHandler(async (req, res) => {
   const { status } = req.query;
   try {
     const settings = await settingsModel.findById({
-      _id: "624533d4c7ad3be6b2c993d6",
+      _id: settingsID,
     });
 
     if (!settings) {
@@ -116,7 +119,7 @@ const dashboardAssetsCount = asyncHandler(async (req, res) => {
     if (settings) {
       const assetsStatus = await statusModel.findOne({ name: status });
       const assets = await historyModel
-        .find({ status: assetsStatus._d, year: settings?.year })
+        .find({ status: assetsStatus?._id, year: settings?.year })
         .populate([
           {
             path: "item",
@@ -142,6 +145,7 @@ const dashboardAssetsCount = asyncHandler(async (req, res) => {
       });
     }
   } catch (error) {
+    console.log(error);
     // return 500
     returnError(res, "Get", "api/dashboard/assets-count");
   }

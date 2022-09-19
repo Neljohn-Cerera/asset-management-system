@@ -5,7 +5,7 @@
 ### PERSONNEL
 #############
 ############# SEARCH PERSONNEL
-GET {{host}}personnel/search?text=&page=2&limit=5
+GET {{host}}personnel/search?text=&page=1&limit=5
 content-type: application/json
 ############# CREATE PERSONNEL
 POST {{host}}personnel 
@@ -214,7 +214,7 @@ POST {{host}}role
 content-type: application/json
 
 {
-  "name": "Assistant Staff"
+  "name": "Staff"
 }
 #################
 #################
@@ -299,7 +299,7 @@ content-type: application/json
 GET {{host}}dashboard
 content-type: application/json
 ################# Retrieve dashboard assets counts
-GET {{host}}dashboard/assets-count?status=lost
+GET {{host}}dashboard/assets-count?status=good condition
 content-type: application/json
 #################
 #################
@@ -408,9 +408,9 @@ content-type: application/json
 
 {
   "name": "Bulb",
-  "description": "Samsung",
+  "description": "500 watts",
   "restock": 10,
-  "unitid": "6260a8f8b12d56f262a56797"
+  "unitid": "6326daeca0f17ddd2a4a7373"
 }
 
 ###### ITEM CONSUMABLES UPDATE
@@ -447,7 +447,7 @@ POST {{host}}stockunit
 content-type: application/json
 
 {
-  "name": "bulk"
+  "name": "piece"
 }
 
 #################
