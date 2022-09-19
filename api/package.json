@@ -7,11 +7,7 @@
     "start": "pm2-runtime start ecosystem.config.js --env production",
     "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-<<<<<<< HEAD
     "postinstall": "npm run start"
-=======
-    "postinstall": "npm run build"
->>>>>>> 246510f00e92c784302e172449ad89bfd1a4761e
   },
   "keywords": [
     "Asset",
