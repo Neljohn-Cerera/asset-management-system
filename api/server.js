@@ -29,10 +29,20 @@ require("./config/dbConnection");
 /* Middel Wares */
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(function (req, res, next) {
+  res.header(
+    "Access-Control-Allow-Origin",
+    "https://client-asset-management.vercel.app"
+  );
+  res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+  res.header("Access-Control-Allow-Headers", "Content-Type");
+
+  next();
+});
 
 app.use(
   cors({
-    origin: process.env.ORIGINS.split(","),
+    origin: ["https://client-asset-management.vercel.app"],
     credentials: true,
   })
 );
@@ -41,7 +51,7 @@ app.use(
  * mongo db session setup
  */
 var store = new MongoDBSession({
-  uri: process.env.DB_URL,
+  uri: "mongodb+srv://admin:admin2022@cluster0.d7lpm.mongodb.net/assets?retryWrites=true&w=majority",
   collection: "sessions",
   maxAge: 28800, // 28800 secs is 8 hours
 });
@@ -114,5 +124,5 @@ app.use("/api/stockdashboard", stockDashboardRoutes);
 /**
  * port
  */
-const port = 3001 || process.env.PORT;
+const port = process.env.PORT || 3001;
 app.listen(port, () => console.log(`Running on port ${port}`));

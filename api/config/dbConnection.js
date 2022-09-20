@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
 
 mongoose
-  .connect(process.env.DB_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(
+    "mongodb+srv://admin:admin2022@cluster0.d7lpm.mongodb.net/assets?retryWrites=true&w=majority",
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    }
+  )
   .then(() => {
     console.log(`Mongodb Connection Successful`);
   })

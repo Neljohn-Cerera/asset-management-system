@@ -21,6 +21,7 @@ const AccountComponent: React.FC = () => {
       ) : null}
       {/* Form Search Component */}
       <FormSearchComponent />
+
       {/* Table Component */}
       <TableComponent />
       <div>

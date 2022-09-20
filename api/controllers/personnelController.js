@@ -179,7 +179,7 @@ const personnelCreateAccount = asyncHandler(async (req, res) => {
     });
   }
   // Check if role exists
-  const _role = await roleModel.findOne({ name: role });
+  const _role = await roleModel.findOne({ name: role.toLowerCase() });
   if (!_role) {
     // return 400
     return res.status(400).json({

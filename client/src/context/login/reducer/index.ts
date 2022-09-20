@@ -2,8 +2,8 @@ import { RALogin, ISLogin } from "../types";
 
 /** non arrray states */
 export const loginInitialStates: ISLogin = {
-  email: "",
-  passWord: "",
+  email: "guest@gmail.com",
+  passWord: "password",
   error: "",
 };
 /** for non array reducer */

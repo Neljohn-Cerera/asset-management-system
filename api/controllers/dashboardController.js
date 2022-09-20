@@ -60,7 +60,9 @@ const dashboardStatistics = asyncHandler(async (req, res) => {
           status: statusGood?._id,
         });
       }
-      const statusForRepair = await statusModel.findOne({ name: "for repair" });
+      const statusForRepair = await statusModel.findOne({
+        name: "for repairs",
+      });
       if (statusLost) {
         forRepair = await historyModel.count({
           year: from,

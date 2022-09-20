@@ -34,7 +34,7 @@ const StatisticsComponent: React.FC = (): JSX.Element => {
         label="For Repairs"
         year={dashBoardArrayStates.settings?.year}
         count={yearAssetCount.length !== 0 ? yearAssetCount[0].forRepairs : 0}
-        onClick={() => handleOpenModal("For Repair Assets", "for repair")}
+        onClick={() => handleOpenModal("For Repair Assets", "for repairs")}
       />
       <CardComponent
         hasButton

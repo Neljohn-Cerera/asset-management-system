@@ -29,9 +29,9 @@ content-type: application/json
 
 {
   "department": "College",
-  "idNumber": "E0007772",
-  "firstName": "Justin",
-  "lastName": "Lake"
+  "idNumber": "G09990202",
+  "firstName": "guest name",
+  "lastName": "guest lastname"
 }
 ### CREATE ACCOUNT
 PUT  {{host}}personnel/account
@@ -39,9 +39,9 @@ content-type: application/json
 
 {
 
-  "id": "632636d7372fef8bcd2cd414",
-  "role": "Teacher",
-  "email": "Justin@gmail.com",
+  "id": "63290b0a6880c20d8b0753a3",
+  "role": "teacher",
+  "email": "guest@gmail.com",
   "passWord": "password"
 }
 #################
